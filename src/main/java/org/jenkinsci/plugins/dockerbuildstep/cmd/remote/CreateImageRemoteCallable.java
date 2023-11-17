@@ -89,7 +89,7 @@ public class CreateImageRemoteCallable extends MasterToSlaveCallable<String, Exc
         DockerClient client = DockerCommand.getClient(descriptor, cfgData.dockerUrlRes, cfgData.dockerVersionRes, cfgData.dockerCertPathRes, null);
         BuildImageCmd buildImageCmd = client
                 .buildImageCmd()
-                .withBaseDirectory(new File(expandedDockerFolder))
+                .withBaseDirectory(folder)
                 .withDockerfile(docker)
                 .withTag(expandedImageTag)
                 .withPull(pull)
